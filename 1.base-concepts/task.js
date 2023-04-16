@@ -15,20 +15,19 @@ function solveEquation(a, b, c) {
 }
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
-	if (isNaN(percent)) {
-		return 'Параметр percent содержит неправильное значение ${percent}';
-	} else if (isNaN(contribution)) {
-		return 'Параметр contribution содержит неправильное значение ${contribution}';
-	} else if (isNaN(amount)) {
-		return 'Параметр amount содержит неправильное значение ${amount}';
-	} else if (isNaN(countMonths)) {
-		return 'Параметр countMonths содержит неправильное значение ${countMonths}';
+	if (isNaN(percent) || isNaN(contribution) || isNaN(amount) || isNaN(countMonths)) {
+		return false;
 	}
 
-	const P = percent / 100 / 12; // процентная ставка в месяц
-	const S = amount - contribution; // тело кредита
-	const monthlyPayment = S * (P + (P / (Math.pow((1 + P), countMonths) - 1))); // ежемесячный платеж
-	const totalAmount = (monthlyPayment * countMonths).toFixed(2); // общая сумма, которую придётся заплатить клиенту
+	percent = parseFloat(percent);
+	contribution = parseFloat(contribution);
+	amount = parseFloat(amount);
+	countMonths = parseInt(countMonths);
+
+	percent = percent / 100 / 12;
+	const body = amount - contribution;
+	const monthlyPayment = body * (percent + (percent / (Math.pow(1 + percent, countMonths) - 1)));
+	const totalAmount = (monthlyPayment * countMonths).toFixed(2);
 
 	return Number(totalAmount);
 }
