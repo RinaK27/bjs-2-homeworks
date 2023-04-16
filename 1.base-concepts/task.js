@@ -16,13 +16,13 @@ function solveEquation(a, b, c) {
 
 function calculateTotalMortgage(percent, contribution, amount, countMonths) {
 	if (isNaN(percent)) {
-		return `Параметр percent содержит неправильное значение ${percent}`;
+		return 'Параметр percent содержит неправильное значение ${percent}';
 	} else if (isNaN(contribution)) {
-		return `Параметр contribution содержит неправильное значение ${contribution}`;
+		return 'Параметр contribution содержит неправильное значение ${contribution}';
 	} else if (isNaN(amount)) {
-		return `Параметр amount содержит неправильное значение ${amount}`;
+		return 'Параметр amount содержит неправильное значение ${amount}';
 	} else if (isNaN(countMonths)) {
-		return `Параметр countMonths содержит неправильное значение ${countMonths}`;
+		return 'Параметр countMonths содержит неправильное значение ${countMonths}';
 	}
 
 	const P = percent / 100 / 12; // процентная ставка в месяц
