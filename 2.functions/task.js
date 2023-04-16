@@ -5,11 +5,7 @@ function getArrayParams(...arr) {
 	max = Math.max.apply(null, arr);
 	let avg = arr.reduce((a, b) => a + b, 0) / arr.length;
 	avg = Number(avg.toFixed(2));
-	return {
-		min,
-		max,
-		avg
-	};
+	return {min,max,avg};
 }
 
 function summElementsWorker(...arr) {
