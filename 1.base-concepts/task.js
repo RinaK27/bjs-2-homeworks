@@ -13,3 +13,22 @@ function solveEquation(a, b, c) {
 		return [x1, x2]; // возвращаем массив с двумя корнями
 	}
 }
+
+function calculateTotalMortgage(percent, contribution, amount, countMonths) {
+	if (isNaN(percent)) {
+		return `Параметр percent содержит неправильное значение ${percent}`;
+	} else if (isNaN(contribution)) {
+		return `Параметр contribution содержит неправильное значение ${contribution}`;
+	} else if (isNaN(amount)) {
+		return `Параметр amount содержит неправильное значение ${amount}`;
+	} else if (isNaN(countMonths)) {
+		return `Параметр countMonths содержит неправильное значение ${countMonths}`;
+	}
+
+	const P = percent / 100 / 12; // процентная ставка в месяц
+	const S = amount - contribution; // тело кредита
+	const monthlyPayment = S * (P + (P / (Math.pow((1 + P), countMonths) - 1))); // ежемесячный платеж
+	const totalAmount = (monthlyPayment * countMonths).toFixed(2); // общая сумма, которую придётся заплатить клиенту
+
+	return Number(totalAmount);
+}
