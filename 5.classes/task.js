@@ -201,14 +201,3 @@ const repairedBook = new FantasticBook(
 repairedBook.state = 60;
 
 library.addBook(repairedBook);
-
-console.log(library.findBookBy("releaseDate", 1924));
-console.log(library.findBookBy("name", "Машина времени"));
-
-console.log(library.giveBookByName("Некоторая книга"));
-console.log(library.giveBookByName("Война и мир"));
-
-console.log(bookToRemove);
-console.log(repairedBook);
-
-console.log(library.books);
