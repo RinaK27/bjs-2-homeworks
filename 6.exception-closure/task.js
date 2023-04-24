@@ -13,7 +13,7 @@ function validateCount(value) {
 
 	} catch (error) {
 
-		console.log(error);
+		return(error);
 
 	}
 }
